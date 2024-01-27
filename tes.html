@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir</title>
+</head>
+<body>
+    <form id="myForm">
+        <label for="input1">Text 1:</label>
+        <input type="text" id="input1" name="input1" value="">
+        
+        <label for="input2">Text 2:</label>
+        <input type="text" id="input2" name="input2" value="">
+        
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        // Mendapatkan nilai dari parameter URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const value1 = urlParams.get('input1');
+        const value2 = urlParams.get('input2');
+
+        // Mengisi nilai teks
+        document.getElementById('input1').value = value1 || '';
+        document.getElementById('input2').value = value2 || '';
+
+        // Menangani pengiriman formulir
+        document.getElementById('myForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            // Lakukan tindakan apa pun yang diperlukan saat tombol submit ditekan
+            // Contohnya, kirim data ke server atau lakukan validasi
+            console.log('Formulir dikirim:', document.getElementById('input1').value, document.getElementById('input2').value);
+        });
+    </script>
+</body>
+</html>
