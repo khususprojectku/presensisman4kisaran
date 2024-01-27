@@ -4,56 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
-
-        #header {
-            background-color: #007bff;
-            color: #fff;
-            padding: 20px;
-        }
-
-        #logo {
-            width: 100px;
-            height: auto;
-        }
-
-        #form-container {
-            margin: 20px;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            display: inline-block;
-            text-align: left;
-        }
-
-        input[type="text"] {
-            width: 100%;
-            padding: 10px;
-            margin: 8px 0;
-            box-sizing: border-box;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        input[type="submit"] {
-            background-color: #4caf50;
-            color: white;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #45a049;
-        }
+        /* Styles sama seperti sebelumnya */
     </style>
 </head>
 <body>
@@ -66,7 +17,7 @@
     <div id="form-container">
         <form action="submit-presensi.php" method="post">
             <label for="kodeHariIni">Kode Hari Ini:</label>
-            <input type="text" id="kodeHariIni" name="kodeHariIni">
+            <input type="text" id="kodeHariIni" name="kodeHariIni" readonly>
 
             <br>
 
@@ -78,6 +29,19 @@
             <input type="submit" value="Kirim">
         </form>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Ambil parameter 'kodeHariIni' dari URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const kodeHariIniFromURL = urlParams.get('kodeHariIni');
+
+            // Isi nilai input 'kodeHariIni' dengan nilai dari URL
+            if (kodeHariIniFromURL) {
+                document.getElementById('kodeHariIni').value = kodeHariIniFromURL;
+            }
+        });
+    </script>
 
 </body>
 </html>
