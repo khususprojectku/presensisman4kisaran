@@ -67,7 +67,7 @@
 
     <div id="form-container">
         <form action="submit-presensi.php" method="post">
-            <input type="hidden" name="tanggal" value="<?php echo date('Y-m-d'); ?>">
+            <input type="text" name="kodeHariIni">
             <label for="kodeSiswa">Kode Siswa:</label>
             <input type="text" id="kodeSiswa" name="kodeSiswa" required>
 
@@ -78,13 +78,13 @@
     </div>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        // Ambil parameter 'kodeSiswa' dari URL
+        // Ambil parameter 'kodeHariIni' dari URL
         const urlParams = new URLSearchParams(window.location.search);
-        const kodeSiswaFromURL = urlParams.get('kodeSiswa');
+        const kodeSiswaFromURL = urlParams.get('kodeHariIni');
 
         // Isi nilai input 'kodeSiswa' dengan nilai dari URL
         if (kodeSiswaFromURL) {
-            document.getElementById('kodeSiswa').value = kodeSiswaFromURL;
+            document.getElementById('kodeHariIni').value = kodeSiswaFromURL;
         }
     });
 </script>
